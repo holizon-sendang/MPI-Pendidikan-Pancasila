@@ -102,7 +102,22 @@
   .subnav{top:53px}
   .subnav-inner{padding:8px 16px}
   .tl-slot .tl-date{flex-basis:96px;font-size:.9rem}
+  .babak{padding:16px}
+  .doc-card,.rumusan-akhir{padding:14px 16px}
+}
+/* HP sangat sempit (<=360px): tanggal lini masa pindah ke atas slot
+   agar area pasang kartu tidak terjepit */
+@media (max-width:360px){
+  .tl-slot{flex-direction:column;gap:6px}
+  .tl-slot .tl-date{flex-basis:auto}
+  .cek-opts{gap:6px}
+  .cek-btn{padding:9px 11px;font-size:.9rem}
 }
 @media (min-width:1440px){
   .subnav a{font-size:.95rem;padding:12px 18px}
+  .babak{padding:26px}
+  .tl-slots{gap:14px}
+  .tl-card{font-size:1.02rem;padding:13px 18px}
+  .tl-slot .tl-drop{font-size:1rem}
+  .poll-btn,.scenario-btn{font-size:1.06rem;padding:17px 20px}
 }
