@@ -1,0 +1,126 @@
+/* U.4 Menjalankan UUD di Lingkungan — style.css (khusus modul ini saja)
+   Base: ../../assets/css/main.css. Palet Biru Samudra tidak diubah di sini.
+   Perbaikan dari MPI Matematika ikut disertakan di main.css:
+   section[id]{scroll-margin-top:140px}. */
+
+/* Navigasi sub-bab: menempel di bawah topnav, bisa digeser horizontal di HP */
+.subnav{position:sticky;top:57px;z-index:40;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.subnav-inner{max-width:var(--wrap);margin:0 auto;padding:10px 20px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.subnav-inner::-webkit-scrollbar{display:none}
+.subnav a{flex:0 0 auto;text-decoration:none;color:var(--ink);font-size:.85rem;font-weight:700;padding:9px 13px;min-height:var(--tap);display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);white-space:nowrap}
+.subnav a:hover{border-color:var(--teal);color:var(--teal)}
+.subnav a.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+.subnav a.done::after{content:"✓";font-weight:800}
+.subnav a.done{border-color:var(--teal)}
+
+/* Header modul */
+.module-hero{padding-top:clamp(24px,5vw,40px)}
+.tp-box{background:var(--teal);color:#fff;border-radius:16px;padding:16px 18px}
+.tp-box p{margin:0;opacity:.95}
+.tp-box strong{font-size:1.05rem}
+
+/* Kartu dokumen pemicu (Piagam Jakarta) */
+.doc-card{background:var(--amber-soft);border:1.5px dashed var(--amber);border-radius:16px;padding:18px 20px}
+.doc-card .doc-title{font-weight:800;color:var(--amber-ink);letter-spacing:.04em;text-transform:uppercase;font-size:.8rem;margin:0 0 8px}
+.doc-card blockquote{margin:0;font-size:1.05rem;line-height:1.7}
+.doc-card mark{background:var(--amber);color:#2A1E05;padding:1px 5px;border-radius:5px;font-weight:700}
+
+/* Polling pemantik */
+.poll-group{display:grid;gap:10px}
+.poll-btn{width:100%;text-align:left;font-family:inherit;cursor:pointer;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;min-height:52px;font-size:1rem;font-weight:700;color:var(--ink);display:flex;gap:12px;align-items:center}
+.poll-btn:hover{border-color:var(--teal)}
+.poll-btn.chosen{border-color:var(--teal);background:var(--teal-soft)}
+.poll-btn .poll-date{font-variant-numeric:tabular-nums}
+
+/* Kartu babak kronologi (Sub-bab 2) */
+.babak{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);padding:20px;margin-top:16px}
+.babak-head{display:flex;gap:12px;align-items:flex-start}
+.babak-num{width:40px;height:40px;flex:0 0 auto;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:800}
+.babak.tersembunyi{display:none}
+.babak .tanggal-besar{font-weight:800;color:var(--teal);font-variant-numeric:tabular-nums}
+.cek-box{background:var(--card2);border-radius:14px;padding:14px 16px;margin-top:14px}
+.cek-box p{font-weight:700;margin-bottom:10px}
+.cek-opts{display:flex;gap:8px;flex-wrap:wrap}
+.cek-btn{font-family:inherit;cursor:pointer;background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:9px 14px;min-height:var(--tap);font-size:.95rem;font-weight:600;color:var(--ink)}
+.cek-btn:hover{border-color:var(--teal)}
+.cek-btn.correct{border-color:var(--teal);background:var(--teal-soft)}
+.cek-btn.wrong{border-color:var(--coral);background:var(--coral-soft)}
+.cek-btn:disabled{cursor:default}
+
+/* Lini masa (Sub-bab 4) */
+.tl-slots{display:grid;gap:10px;margin-top:6px}
+.tl-slot{display:flex;gap:12px;align-items:stretch;border:1.5px dashed var(--line);border-radius:14px;padding:10px 12px;background:var(--card2);min-height:64px}
+.tl-slot .tl-date{flex:0 0 118px;font-weight:800;color:var(--teal);font-variant-numeric:tabular-nums;display:flex;align-items:center}
+.tl-slot .tl-drop{flex:1;display:flex;align-items:center;color:var(--muted);font-size:.92rem}
+.tl-slot.dragover{border-color:var(--teal);background:var(--teal-soft)}
+.tl-slot.terisi{border-style:solid}
+.tl-slot.benar{border-color:var(--teal);background:var(--teal-soft)}
+.tl-pool{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.tl-card{cursor:grab;font-family:inherit;text-align:left;background:var(--card);border:1.5px solid var(--teal);color:var(--ink);border-radius:12px;padding:10px 14px;font-size:.95rem;font-weight:600;max-width:100%}
+.tl-card:hover{background:var(--teal-soft)}
+.tl-card.terpilih{outline:3px solid color-mix(in srgb,var(--teal) 55%,transparent);background:var(--teal-soft)}
+.tl-card.terpasang{cursor:default;border-color:var(--teal);background:var(--card);width:100%}
+.tl-card:disabled{cursor:default;opacity:.95}
+@keyframes goyang{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.goyang{animation:goyang .3s ease 2}
+
+/* Cocokkan tokoh & urutan rumusan (Sub-bab 4) */
+.match-row{padding:14px 0;border-bottom:1px solid var(--line)}
+.match-row:last-of-type{border-bottom:0}
+.match-row .tokoh{font-weight:800;font-size:1.05rem}
+.match-grid{display:grid;gap:12px;grid-template-columns:1fr;margin-top:8px}
+.match-row.ok .tokoh{color:var(--teal)}
+.match-row.no .tokoh{color:var(--coral)}
+.rumusan-akhir{background:var(--teal-soft);border-radius:14px;padding:16px 18px}
+.rumusan-akhir ol{margin:8px 0 0;padding-left:22px}
+.rumusan-akhir li{margin-bottom:4px}
+
+/* Skenario sikap (Sub-bab 3) */
+.scenario-btn{width:100%;text-align:left;font-family:inherit;cursor:pointer;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;min-height:52px;font-size:1rem;font-weight:600;color:var(--ink);display:flex;gap:12px;align-items:flex-start;margin-bottom:10px}
+.scenario-btn:hover{border-color:var(--teal)}
+.scenario-btn .letter{width:30px;height:30px;flex:0 0 auto;border-radius:9px;background:var(--bg2);display:grid;place-items:center;font-weight:800;font-size:.85rem}
+.scenario-btn.best{border-color:var(--teal);background:var(--teal-soft)}
+.scenario-btn.weak{border-color:var(--amber);background:var(--amber-soft)}
+.scenario-btn:disabled{cursor:default}
+
+/* Kuis */
+.quiz-q{font-size:clamp(1.15rem,3.4vw,1.4rem);font-weight:800;line-height:1.3;margin:8px 0 16px}
+.quiz-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.88rem;font-weight:700;color:var(--muted)}
+.quiz-result{text-align:center}
+.check-line{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}
+.check-line:last-child{border-bottom:0}
+
+/* Jarak antar kartu di HP */
+.stack{display:grid;gap:16px}
+.stack>*{min-width:0}
+
+@media (min-width:768px){
+  .match-grid{grid-template-columns:1fr 1fr}
+  .tl-slots{grid-template-columns:1fr 1fr}
+}
+@media (max-width:480px){
+  .subnav{top:53px}
+  .subnav-inner{padding:8px 16px}
+  .tl-slot .tl-date{flex-basis:96px;font-size:.9rem}
+  .babak{padding:16px}
+  .doc-card,.rumusan-akhir{padding:14px 16px}
+}
+/* HP sangat sempit (<=360px): tanggal lini masa pindah ke atas slot
+   agar area pasang kartu tidak terjepit */
+@media (max-width:360px){
+  .tl-slot{flex-direction:column;gap:6px}
+  .tl-slot .tl-date{flex-basis:auto}
+  .cek-opts{gap:6px}
+  .cek-btn{padding:9px 11px;font-size:.9rem}
+}
+@media (min-width:1440px){
+  .subnav a{font-size:.95rem;padding:12px 18px}
+  .babak{padding:26px}
+  .tl-slots{gap:14px}
+  .tl-card{font-size:1.02rem;padding:13px 18px}
+  .tl-slot .tl-drop{font-size:1rem}
+  .poll-btn,.scenario-btn{font-size:1.06rem;padding:17px 20px}
+}
+
+/* Sortir dua kelompok (Sub-bab 4) */
+.sort-slot .tl-drop{flex-wrap:wrap;gap:8px;align-items:flex-start}.sort-slot .tl-card.terpasang{width:auto}
